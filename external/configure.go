@@ -113,7 +113,7 @@ func (cp *RunnerParams) getLocalImage() (*docker.Image, error) {
 	return image, err
 }
 
-// Check the external runner images between local and remote repositories.
+// CheckRegistryImages checks the external runner images between local and remote repositories.
 // If local exists but remote does not then do nothing
 // If local exists and is the same as the remote then do nothing
 // If local is older than remote then give user the option to download the remote

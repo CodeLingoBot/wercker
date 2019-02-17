@@ -185,7 +185,7 @@ func (s *BaseStep) Version() string {
 	return s.version
 }
 
-// Version getter
+// Checkpoint: Version getter
 func (s *BaseStep) Checkpoint() string {
 	return s.checkpoint
 }

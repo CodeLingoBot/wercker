@@ -111,7 +111,7 @@ func guessAndUpdateDockerOptions(ctx context.Context, opts *Options, e *util.Env
 	logger.Println(f.Info("No Docker host found, falling back to default", opts.Host))
 }
 
-// NewDockerOptions constructor
+// NewOptions: constructor
 func NewOptions(ctx context.Context, c util.Settings, e *util.Environment) (*Options, error) {
 	dockerHost, _ := c.String("docker-host")
 	dockerTLSVerify, _ := c.String("docker-tls-verify")

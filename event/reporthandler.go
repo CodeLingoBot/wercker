@@ -59,7 +59,7 @@ type ReportHandler struct {
 	logger   *util.LogEntry
 }
 
-// BuildStepStarted will handle the BuildStepStarted event.
+// StepStarted will handle the BuildStepStarted event.
 func (h *ReportHandler) StepStarted(args *core.BuildStepStartedArgs) {
 	opts := reporter.RunStepStartedArgs{
 		RunID:      args.Options.RunID,
@@ -77,7 +77,7 @@ func (h *ReportHandler) flushLogs(safeID string) error {
 	return nil
 }
 
-// BuildStepFinished will handle the BuildStepFinished event.
+// StepFinished will handle the BuildStepFinished event.
 func (h *ReportHandler) StepFinished(args *core.BuildStepFinishedArgs) {
 	h.flushLogs(args.Step.SafeID())
 
@@ -99,7 +99,7 @@ func (h *ReportHandler) StepFinished(args *core.BuildStepFinishedArgs) {
 	h.reporter.RunStepFinished(context.TODO(), opts)
 }
 
-// BuildStepsAdded will handle the BuildStepsAdded event.
+// StepsAdded will handle the BuildStepsAdded event.
 func (h *ReportHandler) StepsAdded(args *core.BuildStepsAddedArgs) {
 	steps := mapSteps("mainSteps", args.Steps...)
 
@@ -155,7 +155,7 @@ func (h *ReportHandler) Logs(args *core.LogsArgs) {
 	w.Write([]byte(args.Logs))
 }
 
-// BuildFinished will handle the BuildFinished event.
+// PipelineFinished will handle the BuildFinished event.
 func (h *ReportHandler) PipelineFinished(args *core.BuildFinishedArgs) {
 	opts := reporter.RunFinishedArgs{
 		RunID:  args.Options.RunID,

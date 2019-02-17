@@ -163,7 +163,7 @@ func (s *CheapSettings) IntSlice(name string, def ...interface{}) (rv []int, ok 
 	return lookup(name, s.data, def...).IntSlice()
 }
 
-// All the Global versions to do the same thing as the non-global
+// GlobalInt: All the Global versions to do the same thing as the non-global
 func (s *CheapSettings) GlobalInt(name string, def ...interface{}) (rv int, ok bool) {
 	return s.Int(name, def...)
 }

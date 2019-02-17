@@ -87,7 +87,7 @@ func NewServiceBox(config *core.BoxConfig, options *core.PipelineOptions, docker
 	return NewInternalServiceBox(config, options, dockerOptions)
 }
 
-// NewServiceBox from a name and other references
+// NewInternalServiceBox: from a name and other references
 func NewInternalServiceBox(boxConfig *core.BoxConfig, options *core.PipelineOptions, dockerOptions *Options) (*InternalServiceBox, error) {
 	box, err := NewDockerBox(boxConfig, options, dockerOptions)
 	logger := util.RootLogger().WithField("Logger", "Service")

@@ -66,7 +66,7 @@ func (e *Environment) Add(key, value string) {
 	e.Map[key] = value
 }
 
-// Add an individual record.
+// AddIfMissing adds an individual record.
 func (e *Environment) AddIfMissing(key, value string) {
 	if e.Map == nil {
 		e.Add(key, value)
@@ -75,7 +75,7 @@ func (e *Environment) AddIfMissing(key, value string) {
 	}
 }
 
-// Add proxy configuration as public
+// PassThruProxyConfig adds proxy configuration as public
 func (e *Environment) PassThruProxyConfig() {
 	if e.Map == nil {
 		return
@@ -141,12 +141,12 @@ var proxyEnv = [...]string{
 	"NO_PROXY",
 }
 
-// Collect passthru variables from the project
+// GetPassthru: Collect passthru variables from the project
 func (e *Environment) GetPassthru() (env *Environment) {
 	return e.passthru(public)
 }
 
-// Collect the hidden passthru variables
+// GetHiddenPassthru: Collect the hidden passthru variables
 func (e *Environment) GetHiddenPassthru() (env *Environment) {
 	return e.passthru(protected)
 }
